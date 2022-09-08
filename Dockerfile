@@ -23,6 +23,10 @@ RUN set -ex; \
         netbase \
         xz-utils \
         zlib1g-dev \
+        # for regex-pcre
+        libpcre3 \
+        libpcre3-dev \
+        pkg-config \
     ; \
     rm -rf /var/lib/apt/lists/*;
 
