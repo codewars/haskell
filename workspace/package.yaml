@@ -1,0 +1,34 @@
+name: challenge
+version: 0.1.0
+license: BSD3
+synopsis: Haskell challenge
+
+dependencies:
+- base >= 4.7 && < 5
+- attoparsec
+- haskell-src-exts
+- hspec
+- hspec-attoparsec
+- hspec-codewars
+- hspec-contrib
+- hspec-formatters-codewars
+- hspec-megaparsec
+- HUnit-approx
+- lens
+- megaparsec
+- mtl
+- parsec
+- persistent
+- persistent-sqlite
+- persistent-template
+- random
+- regex-pcre
+- regex-posix
+- regex-tdfa
+- split
+- text
+- transformers
+- vector
+
+library:
+  source-dirs: src
