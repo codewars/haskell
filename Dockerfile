@@ -1,5 +1,5 @@
 FROM debian:buster-slim
-# Based on https://github.com/haskell/docker-haskell/blob/9f3a7b0038a6ff9feb668a51cfebebdd4301c9c3/9.2/slim-buster/Dockerfile
+# Based on https://github.com/haskell/docker-haskell/blob/12cd297d7ccc2e97fe5e94548ae502b0cbb6735f/9.2/slim-buster/Dockerfile
 
 ENV LANG=C.UTF-8
 
@@ -30,12 +30,12 @@ RUN set -ex; \
     ; \
     rm -rf /var/lib/apt/lists/*;
 
-ENV STACK=2.7.5 STACK_RELEASE_KEY=C5705533DA4F78D8664B5DC0575159689BEFB442
+ENV STACK=2.9.3 STACK_RELEASE_KEY=C5705533DA4F78D8664B5DC0575159689BEFB442
 RUN set -eux; \
     cd /tmp; \
     STACK_URL="https://github.com/commercialhaskell/stack/releases/download/v${STACK}/stack-${STACK}-linux-x86_64.tar.gz"; \
     # sha256 from https://github.com/commercialhaskell/stack/releases/download/v${STACK}/stack-${STACK}-linux-x86_64.tar.gz.sha256
-    STACK_SHA256="9bcd165358d4dcafd2b33320d4fe98ce72faaf62300cc9b0fb86a27eb670da50"; \
+    STACK_SHA256='938f689dc45e2693ab1ca3ea215790b3786dfd531dcf6c0bf40842c24e579ae9'; \
     curl -sSL "$STACK_URL" -o stack.tar.gz; \
     echo "$STACK_SHA256 stack.tar.gz" | sha256sum --strict --check; \
     \
@@ -79,12 +79,12 @@ RUN set -eux; \
     \
     cabal --version;
 
-ENV GHC=9.2.4 GHC_RELEASE_KEY=88B57FCF7DB53B4DB3BFA4B1588764FBE22D19C4
+ENV GHC=9.2.5 GHC_RELEASE_KEY=88B57FCF7DB53B4DB3BFA4B1588764FBE22D19C4
 RUN set -eux; \
     cd /tmp; \
     GHC_URL="https://downloads.haskell.org/~ghc/$GHC/ghc-$GHC-x86_64-deb10-linux.tar.xz"; \
     # sha256 from https://downloads.haskell.org/~ghc/$GHC/SHA256SUMS
-    GHC_SHA256='a77a91a39d9b0167124b7e97648b2b52973ae0978cb259e0d44f0752a75037cb'; \
+    GHC_SHA256='89f2df47d86a45593d6ba3fd3a44b627d100588cd59be257570dbe3f92b17c48'; \
     curl -sSL "$GHC_URL" -o ghc.tar.xz; \
     echo "$GHC_SHA256 ghc.tar.xz" | sha256sum --strict --check; \
     \
